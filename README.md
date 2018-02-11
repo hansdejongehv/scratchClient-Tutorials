@@ -6,3 +6,4 @@ This is repository holds an set of scripts that make it easier to setup and work
 This material is under development for Raspberry Pi. The intent is to later be able to run it with Windows as well.
 
 So far the releases are pre-releases only. Intent is that everything will be ready by 23 Feb 2018 in order for a workshop to be given at the Pi and More 10 1/2 conference in Stuttgart at 24 Feb.
+
