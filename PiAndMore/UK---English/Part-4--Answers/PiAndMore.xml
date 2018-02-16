@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config version="1.0">
+    <description>Generated configuration from ScratchClientConfig</description>
+    <adapter class="adapter.arduino.UNO_Adapter" name="UNO">
+        
+        <!-- id = 'D2'  direction = 'out'  function = 'output' -->
+        <input_value name="inputD2">
+            <variable name="Big Green LED"/>
+        </input_value>
+        
+        <!-- id = 'D3'  direction = 'out'  function = 'pwm' -->
+        <input_value name="pwmD3">
+            <variable name="3Color Red LED"/>
+        </input_value>
+        
+        <!-- id = 'D4'  direction = 'out'  function = 'output' -->
+        <input_value name="inputD4">
+            <variable name="Big Red LED"/>
+        </input_value>
+        
+        <!-- id = 'D5'  direction = 'out'  function = 'pwm' -->
+        <input_value name="pwmD5">
+            <variable name="3Color Blue LED"/>
+        </input_value>
+        
+        <!-- id = 'D6'  direction = 'out'  function = 'pwm' -->
+        <input_value name="pwmD6">
+            <variable name="3Color Green LED"/>
+        </input_value>
+        
+        <!-- id = 'D7'  direction = 'in'  function = 'input_pullup' -->
+        <output_value name="outputD7">
+            <sensor name="Button"/>
+        </output_value>
+        
+        <!-- id = 'D8'  direction = 'in'  function = 'counter_pullup' -->
+        <output_value name="outputD8">
+            <sensor name="Counter button"/>
+        </output_value>
+        
+        <!-- id = 'D9'  direction = 'out'  function = 'output' -->
+        <input_value name="inputD9">
+            <variable name="Big Blue LED"/>
+        </input_value>
+        
+        <!-- id = 'D10'  direction = 'in'  function = 'counter' -->
+        <output_value name="outputD10">
+            <sensor name="IR sensor"/>
+        </output_value>
+        
+        <!-- id = 'D11'  direction = 'out'  function = 'pwm' -->
+        <input_value name="pwmD11">
+            <variable name="Buzzer"/>
+        </input_value>
+        
+        <!-- id = 'D12'  direction = 'out'  function = 'servo' -->
+        <input_value name="servoD12">
+            <variable name="Servo 1"/>
+        </input_value>
+        
+        <!-- id = 'A0'  direction = 'in'  function = 'analog' -->
+        <output_value name="outputA0">
+            <sensor name="Rain Sensor"/>
+        </output_value>
+        
+        <!-- id = 'A1'  direction = 'in'  function = 'input_pullup' -->
+        <output_value name="outputA1">
+            <sensor name="Tilt Sensor"/>
+        </output_value>
+        
+        <!-- id = 'A2'  direction = 'out'  function = 'output' -->
+        <input_value name="inputA2">
+            <variable name="Relay"/>
+        </input_value>
+        
+        <!-- id = 'A3'  direction = 'in'  function = 'input' -->
+        <output_value name="outputA3">
+            <sensor name="Sound Sensor"/>
+        </output_value>
+        
+        <!-- id = 'A4'  direction = 'in'  function = 'analog' -->
+        <output_value name="outputA4">
+            <sensor name="Potmeter"/>
+        </output_value>
+        
+        <!-- id = 'A5'  direction = 'in'  function = 'input_pullup' -->
+        <output_value name="outputA5">
+            <sensor name="Joystick Botton"/>
+        </output_value>
+        
+        <!-- id = 'A6'  direction = 'in'  function = 'analog' -->
+        <output_value name="outputA6">
+            <sensor name="JoyStickY"/>
+        </output_value>
+        
+        <!-- id = 'A7'  direction = 'in'  function = 'analog' -->
+        <output_value name="outputA7">
+            <sensor name="JoyStickX"/>
+        </output_value>
+        
+        <extension>
+            <io dir="out" id="D2"/>
+            <io dir="pwm" id="D3"/>
+            <io dir="out" id="D4"/>
+            <io dir="pwm" id="D5"/>
+            <io dir="pwm" id="D6"/>
+            <io dir="in" id="D7" pullup="on"/>
+            <io dir="counter" id="D8" pullup="on"/>
+            <io dir="out" id="D9"/>
+            <io dir="counter" id="D10"/>
+            <io dir="pwm" id="D11"/>
+            <io dir="servo" id="D12"/>
+            <analog dir="analog_in" id="A0"/>
+            <analog dir="in" id="A1" pullup="on"/>
+            <analog dir="out" id="A2"/>
+            <analog dir="in" id="A3"/>
+            <analog dir="analog_in" id="A4"/>
+            <analog dir="in" id="A5" pullup="on"/>
+            <analog dir="analog_in" id="A6"/>
+            <analog dir="analog_in" id="A7"/>
+        </extension>
+        
+        <parameter name="serial.device" value="/dev/ttyUSB0"/>
+        <parameter name="serial.baud" value="115200"/>
+        
+        <!-- optional parameters for IDENT check -->
+        <parameter name="ident.check" value="yes"/>
+        <parameter name="ident.pattern" value=""/>
+    </adapter>
+</config>

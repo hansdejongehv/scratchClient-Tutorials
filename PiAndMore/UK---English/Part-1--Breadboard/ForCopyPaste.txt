@@ -1,0 +1,18 @@
+https://www.youtube.com/watch?v=Qo1gnXNzhqE
+
+/home/pi/scratchClient/tools
+
+scratchClientConfig.sh
+
+PiAndMore.xml
+
+StartSC.bash
+
+#!/bin/bash
+python ~/scratchClient/src/scratchClient.py -c ~/Desktop/PiAndMore/PiAndMore.xml
+pause –p “Press Enter to continue”
+
+PiAndMore.sb
+
+localhost:8080
+
