@@ -2,7 +2,7 @@
 
 thisdir=`dirname $0`
 
-EXT="accl"
+EXT="bccl"
 APP1="$EXT"Run
 APP2="$EXT"Edit
 ICONPREFIX="SCLogo"
@@ -15,7 +15,7 @@ APP=$APP1
 NAME="scratchClient Run"
 COMMENT="$APP's data file"
 TERMINAL=true
-EXEC=/home/pi/scratchClientExtension/Common/src/Run_SC_Cl_and_Mon.sh
+EXEC=~/scratchClientExtension/src/Run_SC_Cl_and_Mon.sh
 ICONDIR=$thisdir/icons
 
 
@@ -27,7 +27,7 @@ APP=$APP2
 NAME="scratchClient Edit"
 COMMENT="$APP's data file"
 TERMINAL=false
-EXEC=/home/pi/scratchClientExtension/Common/src/Start_SC_Edit_Config.sh
+EXEC=~/scratchClientExtension/src/Start_SC_Edit_Config.sh
 ICONDIR=$thisdir/icons
 
 $thisdir/register_mime.sh $APP "$NAME" $EXT $TERMINAL $EXEC $ICONDIR $ICONPREFIX

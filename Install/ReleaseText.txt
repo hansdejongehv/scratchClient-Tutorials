@@ -1,0 +1,16 @@
+
+
+Pre-release of the workshop for Pi and More 10 1/2.
+
+This is only for testing.
+
+To install, open a terminal window, copy the entire block below, paste it into the terminal window and hit enter.
+
+
+release=	# THIS IS THE RELEASE NUMBER, e.g. 0.1
+cd ~ # go to the home folder
+wget https://github.com/hansdejongehv/scratchClient-Tutorial/archive/scratchClientTutorial-v$release.tar.gz # download the archive
+tar xzf PiAndMore-v$release.tar.gz # unpack the archive.
+cd scratchClient-Tutorial-scratchClientTutorialv$release # change directory to the directory into which into which the archive was unpacked.
+chmod 744 Install/Install.sh # make sure that the install script can be executed.
+./Install/Install.sh # execute the install script
