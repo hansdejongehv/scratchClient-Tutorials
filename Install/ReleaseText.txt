@@ -13,8 +13,8 @@ release=scratchClient-Tutorials-v0.1-alpha
 cd ~ # go to the home folder
 wget https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz # download the archive
 tar xzf $release.tar.gz # unpack the archive.
-cd *$release # change directory to the directory into which into which the archive was unpacked.
-chmod 744 Install/Install.sh # make sure that the install script can be executed.
-./Install/Install.sh # execute the install script
+cd *$release/Install # change directory to the Install directory of directory into which into which the archive was unpacked.
+chmod 744 Install.sh # make sure that the install script can be executed.
+./Install.sh # execute the install script
 #----------------------------------
 
