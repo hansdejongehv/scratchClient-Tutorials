@@ -8,11 +8,11 @@ To install, open a terminal window, copy the entire block below, paste it into t
 
 
 #---------------------------------
-release=scratchClient-Tutorials-v0.1-alpha
+release=
 #THIS IS THE RELEASE NUMBER, e.g. scratchClient-Tutorials-v0.1-alpha
 export release
 cd ~ # go to the home folder
-wget https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz # download the archive
+wget https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz #download the archive
 tar xzf $release.tar.gz # unpack the archive.
 cd *$release/Install # change directory to the Install directory of directory into which into which the archive was unpacked.
 chmod 744 Install.sh # make sure that the install script can be executed.

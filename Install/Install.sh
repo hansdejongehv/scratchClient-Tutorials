@@ -1,6 +1,6 @@
 #!/bin/bash
 
- set -x
+# set -x
 #############
 # 
 # This is the install script which will install the material of the 
@@ -68,7 +68,7 @@ cd $thisdir
 source ./InstallArduino.sh
 
 cd $thisdir
-#source ./InstallWorkshop.sh
+source ./InstallExtAndTutorial.sh
 
 cd $thisdir
 #source ./InstallLes2.sh
@@ -77,7 +77,7 @@ echo "# FINAL CLEANUP"
 				# remove the folder into which the material was unpacked.
 				# note that this also deletes this install script, but since
 				# that is the almost last line, it should not be a problem.
-# rm -r ~/Weekendschool-PiAndMore-PiAndMore*
+echo rm -r ../../*$release 
 
 echo "=============================================================================="
 echo "$ArduinoInstall"

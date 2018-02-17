@@ -4,10 +4,10 @@
 # 
 # Calling:
 #	This script must be executed in-line. So call it in this way:
-#	source ./InstallWorkshop.sh
+#	source ./InstallExtAndTutorial.sh
 #
 # Input: 
-#	none
+#	The current directory must be the Install directory
 #
 # Output: 
 #	none
@@ -18,17 +18,25 @@
 
 
 echo "##############"
-echo "# Install the workshop material of the PiAndMore conference"
+echo "# Install the extensions for scratchClient and the tutorials."
 echo "# Github results in a less than optimal placement of files and names of directories, so"
 echo "# that is also corrected here."
 echo "##############"
-cd ~/Weekendschool-PiAndMore-PiAndMore*
+cd ..
 				# go into the directory where the material was unpacked into.
 				# use a wildcard so that later releases do not require update
 				# of this script.
-mv README.md PiAndMore		# move the readme file into the subdirectory
-rm -rf ~/PiAndMore		# erase the old directory if it is present
-mv PiAndMore ~			# move the subdirectory to the home directory
+				
+# now copy the README.md and the LICENSE files into both target directories
+cp README.md scratchClientExtension
+cp README.md scratchClientTutorial
+cp LICENSE scratchClientExtension
+cp LICENSE scratchClientTutorial
+
+rm -rf ~/scratchClientExtension		# erase the old directory if it is present
+rm -rf ~/scratchClientTutorial		# erase the old directory if it is present
+mv scratchClientExtension ~			# move the subdirectory to the home directory
+mv scratchClientTutorial ~			# move the subdirectory to the home directory
 # rm ../PiAndMore-*.tar.gz	# remove the archive file that was downloaded
 # cp Install* ~/PiAndMore
 				# copy the install scripts (including this script that is executed)

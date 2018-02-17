@@ -74,6 +74,11 @@ case "$InstallScratchClient" in
 		sudo pip install tornado mako==1.0.6 spidev pyserial intelhex
 		sudo pip3 install tornado mako==1.0.6 spidev pyserial intelhex
 				# ... and the same for the rest of the needed packages.
+
+		# install the extension for Scratch2
+		cd ~/scratchClient/tools/scratch2connection
+		sudo python3 install.py
+
 	;;
 
 	*)	IsScratchClientInstalled="scratchClient was already present and not reinstalled."
