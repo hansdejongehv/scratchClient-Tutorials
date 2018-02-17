@@ -10,6 +10,7 @@ To install, open a terminal window, copy the entire block below, paste it into t
 #---------------------------------
 release=scratchClient-Tutorials-v0.1-alpha
 #THIS IS THE RELEASE NUMBER, e.g. scratchClient-Tutorials-v0.1-alpha
+export release
 cd ~ # go to the home folder
 wget https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz # download the archive
 tar xzf $release.tar.gz # unpack the archive.

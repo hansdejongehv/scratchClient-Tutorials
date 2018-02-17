@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set -x
+ set -x
 #############
 # 
 # This is the install script which will install the material of the 
@@ -21,8 +21,8 @@
 # Author: Hans de Jong
 #
 ##############
-
-if [ X$release == X ] ;
+echo release=$release
+if [ -z $release ] ;
 then
 	echo The variable  release  is not set
 	exit
