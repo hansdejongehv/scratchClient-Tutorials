@@ -16,8 +16,10 @@
 #   - Strip any spaces from the filename and change the extension to .sb2
 #   - Move the file to the desktop, because for the purpose of the workshops / classes
 #     the scratch files are located on the desktop.
-#   - If a file with the same name already exists, move this with a timestamp added
+#   - If a file with the same name already exists, copy this with a timestamp added
 #     to the end of the filename to the backup folder that was created.
+#     On purpose we do not move that one, since then the placement on the desktop 
+#     may get changed.
 #
 # Author: Hans de Jong
 # Date:   2018-01-27
@@ -66,12 +68,12 @@ do
 				timestamp=`date "+%Y%m%d-%H%M%S"`
 				#echo $timestamp 
 				timestampedName=$newname-$timestamp.sb2
-				mv $targetdir/$newnameWithExt $backupdir/$timestampedName
+				cp $targetdir/$newnameWithExt $backupdir/$timestampedName
 				echo "moved  $targetdir/$newnameWithExt  to  $backupdir/$timestampedName"
 
 				# wait for a second, so that there is some visual feedback that the 
 				# move has happened
-				sleep 1
+				#sleep 1
 			fi
 
 			mv "$f" $targetdir/$newnameWithExt

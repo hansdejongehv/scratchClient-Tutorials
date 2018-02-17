@@ -2,7 +2,7 @@
 
 thisdir=`dirname $0`
 
-EXT="bccl"
+EXT="scl"
 APP1="$EXT"Run
 APP2="$EXT"Edit
 ICONPREFIX="SCLogo"

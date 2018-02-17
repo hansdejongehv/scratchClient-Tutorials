@@ -13,7 +13,7 @@ ICONPREFIX="CatLogo"
 APP=$APP1
 NAME="Scratch 2"
 COMMENT="$APP's data file"
-TERMINAL=true
+TERMINAL=false
 EXEC=/usr/bin/scratch2
 ICONDIR=$thisdir/icons
 
