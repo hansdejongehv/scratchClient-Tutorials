@@ -21,11 +21,11 @@
 ##############
 
 
-scratchClient_configfile=$1
+scratchClient_configfile="$1"
 showRPipage=$2
 scratchClient=~/scratchClient/src/scratchClient.py
 
-if [ X$scratchClient_configfile == X ] ;
+if [ "X$scratchClient_configfile" == X ] ;
 then
 	echo "$0 was started without parameters. "
 	echo "usage: $0 configfile [showRPipage]"
@@ -74,7 +74,7 @@ status=
 while [ "X$status" == X ]
 do
 	# Start scratchClient and continue to test whether the process actually runs
-	python3 $scratchClient -C $scratchClient_configfile & 
+	python3 $scratchClient -C "$scratchClient_configfile" & 
 	SC_ProcessNum=$!
 	echo "Process of scratchClient = $SC_ProcessNum"
 	sleep 4

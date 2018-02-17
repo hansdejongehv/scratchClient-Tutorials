@@ -37,15 +37,14 @@ rm -rf ~/scratchClientExtension		# erase the old directory if it is present
 rm -rf ~/scratchClientTutorial		# erase the old directory if it is present
 mv scratchClientExtension ~			# move the subdirectory to the home directory
 mv scratchClientTutorial ~			# move the subdirectory to the home directory
+
+# create a link on the desktop for the tutorial directory
+ln -s ~/scratchClientTutorial ~/Desktop/scratchClient_Tutorials
 # rm ../PiAndMore-*.tar.gz	# remove the archive file that was downloaded
-# cp Install* ~/PiAndMore
-				# copy the install scripts (including this script that is executed)
-				# it will loose the executable property by this copy operation, but 
-				# that is fine. It is only to be used for reference since the 
-				# references to the paths would be wrong anyway.
-cd ~/PiAndMore/ForHelpers
+
+# cd ~/PiAndMore/ForHelpers
 				# Go to the directory with scripts
-chmod 744 *.bash
+# chmod 744 *.bash
 
 
 # Make the PiAndMore folder on the desktop
