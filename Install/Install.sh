@@ -22,8 +22,24 @@
 #
 ##############
 
+if [ X$release == X ] ;
+then
+	echo The variable  release  is not set
+	exit
+fi
+
+if [ ! -d ../../*$release ] ;
+then
+	echo ../../*$release is not a directory
+	exit
+fi
+
+
 thisdir=`pwd`	# Remember where the script is started to be able later to find the continuation scripts.
 # echo $thisdir
+
+# erase the .gz file that was used to download
+rm ../../*$release.tar.gz
 
 InstallScratchClient="Y"
 if  [  -e ~/scratchClient ] ;
@@ -52,7 +68,7 @@ cd $thisdir
 source ./InstallArduino.sh
 
 cd $thisdir
-source ./InstallWorkshop.sh
+#source ./InstallWorkshop.sh
 
 cd $thisdir
 #source ./InstallLes2.sh
