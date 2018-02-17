@@ -1,8 +1,5 @@
 #!/bin/bash
 
-thisdir=`pwd`	# Remember where the script is started to be able later to find the continuation scripts.
-# echo $thisdir
-
 # set -x
 #############
 # 
@@ -24,6 +21,9 @@ thisdir=`pwd`	# Remember where the script is started to be able later to find th
 # Author: Hans de Jong
 #
 ##############
+
+thisdir=`pwd`	# Remember where the script is started to be able later to find the continuation scripts.
+# echo $thisdir
 
 InstallScratchClient="Y"
 if  [  -e ~/scratchClient ] ;
@@ -55,7 +55,7 @@ cd $thisdir
 source ./InstallWorkshop.sh
 
 cd $thisdir
-source ./InstallLes2.sh
+#source ./InstallLes2.sh
 				
 echo "# FINAL CLEANUP"
 				# remove the folder into which the material was unpacked.

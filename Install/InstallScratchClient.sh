@@ -44,16 +44,22 @@ case "$InstallScratchClient" in
 		case "$InstallTestedScratchClient" in
 		Y|y)
 			
-			cp ~/Weekendschool-PiAndMore-PiAndMore*/PiAndMore/scratchClient/scratchClient.tar.gz .
+			cp ~/scratchClient-Tutorial*/scratchClientExtension/scratchClient/scratchClient.tar.gz .
 			# copy the tested scratchClient
 			IsScratchClientInstalled="scratchClient was installed from the tested version."
 		;;
 		*)
-			wget http://heppg.de/ikg/administration/pi/scratchClient/download/scratchClient.tar.gz
+			wget -O scratchClient.tar.gz http://heppg.de/download/scratchClient/scratchClient.tar.gz
 			# download scratchClient
 			IsScratchClientInstalled="scratchClient was installed from the downloaded internet version."
 		;;
 		esac
+		
+		cd ~
+
+
+
+
 
 		tar xzf ~/scratchClient.tar.gz	# unpack scratchClient
 		chmod +r -R scratchClient/	# set read permission on the entire tree
@@ -63,7 +69,10 @@ case "$InstallScratchClient" in
 		sudo apt-get update		# update Raspian
 		sudo apt-get install python-pip python-dev
 				# get install packages that scratchClient needs ...
-		sudo pip install cherrypy routes mako ws4py spidev
+		sudo apt-get install python-pip python-dev python-smbus 
+		sudo apt-get install python3-pip python3-dev python3-smbus 
+		sudo pip install tornado mako==1.0.6 spidev pyserial intelhex
+		sudo pip3 install tornado mako==1.0.6 spidev pyserial intelhex
 				# ... and the same for the rest of the needed packages.
 	;;
 
