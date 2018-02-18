@@ -72,7 +72,7 @@ source ./InstallArduino.sh
 cd $thisdir
 source ./InstallExtAndTutorial.sh
 
-
+cd $thisdir
 #these scripts will be executed, so make sure this is possible
 chmod 744 register*sh
 
@@ -104,8 +104,10 @@ read -a RebootNow -p 'Y or N: '
 case "$RebootNow" in
 	Y|y)
 		reboot
+	;;
 	*)
 		echo "You must manually reboot later"
+	;;
 esac
 	
 
