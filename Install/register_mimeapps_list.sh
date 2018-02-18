@@ -1,10 +1,10 @@
 #!/bin/bash
 
+MIMETYPE="application/x-$1"
 PRIMEAPP="$1.desktop;"
 SECONDAPP="$2.desktop;"
 THIRDAPP="$3.desktop;"
 MIMEAPPS_LIST_PATH=/home/pi/.config/mimeapps.list
-MIMETYPE="application/x-$PRIMEAPP"
 MIMETYPE_ASSOCIATION_LINE="$PRIMEAPP$SECONDAPP$THIRDAPP"
 tempfile=/tmp/mimeapps.list
 
