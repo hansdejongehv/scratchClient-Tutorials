@@ -65,6 +65,15 @@ cd $thisdir
 source ./InstallScratchClient.sh
 
 cd $thisdir
+source ./register_scratch1_icons.sh
+
+cd $thisdir
+source ./register_scratch2_icons.sh
+
+cd $thisdir
+source ./register_all_SC_mime.sh
+
+cd $thisdir
 source ./InstallArduino.sh
 
 cd $thisdir

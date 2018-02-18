@@ -4,9 +4,9 @@
 # based on the work of fastrizwaan
 # https://stackoverflow.com/questions/30931/register-file-extensions-mime-types-in-linux#31836
 
-LOGOPREFIX=CatLogo
+LOGOPREFIX=CatLogoScratch1-4-
 APP=scratch-project
-ICONDIR=/home/pi/NAS/GitHub/scratchClient-Tutorials/scratchClientExtension/Icons
+ICONDIR=../scratchClientExtension/Icons
 
 # copy associated icons to the icon folders
 for resolution in 16 24 32 48 64 72 96 128 256 ;
