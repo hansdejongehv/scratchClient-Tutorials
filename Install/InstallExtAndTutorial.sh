@@ -43,7 +43,8 @@ mv scratchClientTutorial ~			# move the subdirectory to the home directory
 
 # cd ~/PiAndMore/ForHelpers
 				# Go to the directory with scripts
-# chmod 744 *.bash
+cd ~/scratchClientExtension/src
+chmod 744 *.sh
 
 
 # Make the PiAndMore folder on the desktop

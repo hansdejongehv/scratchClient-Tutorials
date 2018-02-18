@@ -2,7 +2,7 @@
 
 thisdir=`dirname $0`
 
-EXT="scl"
+EXT="ascl"
 APP1="$EXT"Run
 APP2="$EXT"Edit
 ICONPREFIX="SCLogo"
@@ -28,7 +28,7 @@ NAME="scratchClient Edit"
 COMMENT="$APP's data file"
 TERMINAL=false
 EXEC=~/scratchClientExtension/src/Start_SC_Edit_Config.sh
-ICONDIR=$thisdir/icons
+ICONDIR=$1
 
 $thisdir/register_mime.sh $APP "$NAME" $EXT $TERMINAL $EXEC $ICONDIR $ICONPREFIX
 
