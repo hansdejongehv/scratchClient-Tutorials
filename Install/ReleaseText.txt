@@ -9,13 +9,16 @@ To install, open a terminal window, copy the entire block below, paste it into t
 
 #---------------------------------
 release=
-#THIS IS THE RELEASE NUMBER, e.g. scratchClient-Tutorials-v0.1-alpha
+#THIS IS THE RELEASE NUMBER, e.g. scv0.1.5-alpha
 export release
 cd ~ # go to the home folder
-wget https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz #download the archive
-tar xzf $release.tar.gz # unpack the archive.
-cd *$release/Install # change directory to the Install directory of directory into which into which the archive was unpacked.
+wget -O scratchClientTutorials-$release.tar.gz https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz
+
+#download the archive
+tar xzf scratchClientTutorials-$release.tar.gz # unpack the archive.
+cd *$release/Install # change directory to the Install directory of directory into
+
+which into which the archive was unpacked.
 chmod 744 Install.sh # make sure that the install script can be executed.
 ./Install.sh # execute the install script
 #----------------------------------
-

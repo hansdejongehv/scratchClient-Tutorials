@@ -28,6 +28,7 @@ then
 	exit
 fi
 
+
 if [ ! -d ../../*$release ] ;
 then
 	echo ../../*$release is not a directory
@@ -65,19 +66,24 @@ cd $thisdir
 source ./InstallScratchClient.sh
 
 cd $thisdir
-source ./register_scratch1_icons.sh
-
-cd $thisdir
-source ./register_scratch2_icons.sh
-
-cd $thisdir
-source ./register_all_SC_mime.sh
-
-cd $thisdir
 source ./InstallArduino.sh
+
 
 cd $thisdir
 source ./InstallExtAndTutorial.sh
+
+
+#these scripts will be executed, so make sure this is possible
+chmod 744 register*sh
+
+./register_scratch1_icons.sh ~/scratchClientExtension/Icons
+
+./register_scratch2_icons.sh ~/scratchClientExtension/Icons
+
+./register_all_SC_mime.sh ~/scratchClientExtension/Icons
+
+cp ~/scratchClientExtension/Examples/* ~/Desktop/
+
 
 cd $thisdir
 #source ./InstallLes2.sh
@@ -91,6 +97,17 @@ echo rm -r ../../*$release
 echo "=============================================================================="
 echo "$ArduinoInstall"
 echo "$IsScratchClientInstalled"
+echo To see the newly installed icons you must reboot
 echo "=============================================================================="
+echo "Do you want to reboot now?"
+read -a RebootNow -p 'Y or N: '
+case "$RebootNow" in
+	Y|y)
+		reboot
+	*)
+		echo "You must manually reboot later"
+esac
+	
+
 echo "Hit any key to close"
 read

@@ -16,7 +16,7 @@ NAME="scratchClient Run"
 COMMENT="$APP's data file"
 TERMINAL=true
 EXEC=~/scratchClientExtension/src/Run_SC_Cl_and_Mon.sh
-ICONDIR=../scratchClientExtension/Icons
+ICONDIR=$1
 
 
 $thisdir/register_mimeapp.sh $APP "$NAME" $EXT 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #############
 # 
 # This script will install the workshop material.
@@ -28,10 +30,10 @@ cd ..
 				# of this script.
 				
 # now copy the README.md and the LICENSE files into both target directories
-cp README.md scratchClientExtension
-cp README.md scratchClientTutorial
-cp LICENSE scratchClientExtension
-cp LICENSE scratchClientTutorial
+cp README.md scratchClientExtension/
+cp README.md scratchClientTutorial/
+cp LICENSE scratchClientExtension/
+cp LICENSE scratchClientTutorial/
 
 rm -rf ~/scratchClientExtension		# erase the old directory if it is present
 rm -rf ~/scratchClientTutorial		# erase the old directory if it is present
