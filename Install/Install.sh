@@ -84,6 +84,9 @@ chmod 744 register*sh
 
 cp ~/scratchClientExtension/Examples/* ~/Desktop/
 
+chmod 744 SetLinks.sh
+./SetLinks.sh
+
 
 cd $thisdir
 #source ./InstallLes2.sh
