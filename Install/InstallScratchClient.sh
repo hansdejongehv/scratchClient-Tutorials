@@ -79,6 +79,9 @@ case "$InstallScratchClient" in
 		cd ~/scratchClient/tools/scratch2connection
 		sudo python3 install.py
 
+		# install what is needed for the Sonic-Pi adapter
+		sudo pip3 install python-osc
+
 	;;
 
 	*)	IsScratchClientInstalled="scratchClient was already present and not reinstalled."

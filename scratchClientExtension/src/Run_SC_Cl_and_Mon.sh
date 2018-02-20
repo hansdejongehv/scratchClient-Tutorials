@@ -25,16 +25,51 @@ scratchClient_configfile="$1"
 showRPipage=$2
 scratchClient=~/scratchClient/src/scratchClient.py
 
-if [ "X$scratchClient_configfile" == X ] ;
+if [ -z $scratchClient_configfile ] ;
 then
-	echo "$0 was started without parameters. "
-	echo "usage: $0 configfile [showRPipage]"
-	read -p "Press ENTER to exit ..."
+	echo "This script can only run when provided with an existing config file."
+	echo
+	echo "You probably started the tool from a menu, while it is designed to"
+	echo "be started from the context menu that appears when right clicking"
+	echo "on a config file."
+	echo
+	read -a answer -p "Hit enter to close."
 	exit
 fi
 
+	
+# test whether the config file is for Sonic Pi o and in that case test whether Sonic Pi is running
+# If it is not running then start it and wait, because it takes a considerable time to get running.
+grep adapter.sonicpiAdapter.SonicPi_Adapter "$scratchClient_configfile" > /dev/null
+SonicPiConfigFound=$?
+# 0 = found, 1 = not found, 2 = error
+# echo arduinoConfigFound=$arduinoConfigFound
+
+if [ X$SonicPiConfigFound == X0 ] ;
+then
+	SonicPiPS=`ps | grep sonic-pi`
+	if [ -z "$SonicPiPS" ] 
+	then
+		# start Sonic-Pi
+		sonic-pi > /dev/null 2>&1 &
+		echo "starting Sonic-Pi"
+		waittime=40
+		echo "This takes a while, hence count down from $waittime seconds"
+		
+		while [ $waittime != 0 ]
+		do
+			echo -n -e "\\r $waittime "
+			waittime=`expr $waittime - 1`
+			sleep 1
+		done
+		echo
+		
+	fi
+
+fi
+
 # test whether the config file is for Arduino and in that case test whether the port exists
-grep adapter.arduino.UNO_Adapter "$1" > /dev/null
+grep adapter.arduino.UNO_Adapter "$scratchClient_configfile" > /dev/null
 arduinoConfigFound=$?
 # 0 = found, 1 = not found, 2 = error
 # echo arduinoConfigFound=$arduinoConfigFound
