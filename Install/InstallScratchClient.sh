@@ -44,7 +44,7 @@ case "$InstallScratchClient" in
 		case "$InstallTestedScratchClient" in
 		Y|y)
 			
-			cp ~/scratchClient-Tutorial*/scratchClientExtension/scratchClient/scratchClient.tar.gz .
+			cp ~/scratchClient-Tutorial*/scratchClientExtension/scratchClient/scratchClient*.tar.gz ./scratchClient.tar.gz
 			# copy the tested scratchClient
 			IsScratchClientInstalled="scratchClient was installed from the tested version."
 		;;

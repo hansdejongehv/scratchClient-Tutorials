@@ -21,4 +21,4 @@ cd *$release/Install # change directory to the Install directory of directory in
 which into which the archive was unpacked.
 chmod 744 Install.sh # make sure that the install script can be executed.
 ./Install.sh # execute the install script
-#----------------------------------
+

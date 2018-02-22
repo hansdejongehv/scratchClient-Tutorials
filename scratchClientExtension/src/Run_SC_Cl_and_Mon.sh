@@ -25,7 +25,7 @@ scratchClient_configfile="$1"
 showRPipage=$2
 scratchClient=~/scratchClient/src/scratchClient.py
 
-if [ -z $scratchClient_configfile ] ;
+if [ -z "$scratchClient_configfile" ] ;
 then
 	echo "This script can only run when provided with an existing config file."
 	echo
