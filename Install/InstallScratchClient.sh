@@ -42,16 +42,17 @@ case "$InstallScratchClient" in
 
 		rm -f ~/scratchClient.tar.gz*
 		case "$InstallTestedScratchClient" in
-		Y|y)
+
+		N|n)
+			wget -O scratchClient.tar.gz http://heppg.de/download/scratchClient/scratchClient.tar.gz
+			# download scratchClient
+			IsScratchClientInstalled="scratchClient was installed from the downloaded internet version."
+		;;
+		*)
 			
 			cp ~/scratchClient-Tutorial*/scratchClientExtension/scratchClient/scratchClient*.tar.gz ./scratchClient.tar.gz
 			# copy the tested scratchClient
 			IsScratchClientInstalled="scratchClient was installed from the tested version."
-		;;
-		*)
-			wget -O scratchClient.tar.gz http://heppg.de/download/scratchClient/scratchClient.tar.gz
-			# download scratchClient
-			IsScratchClientInstalled="scratchClient was installed from the downloaded internet version."
 		;;
 		esac
 		

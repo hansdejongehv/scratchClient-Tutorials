@@ -53,8 +53,8 @@ fi
 
 case "$InstallScratchClient" in 
 	Y|y)
-		echo 'Do you want to install the latest release tested with this setup (Y), or'
-		echo 'do you want to take the most recent version of scratchClient from the internet (default)'
+		echo 'Do you want to install the latest release tested with this setup (Y, default), or'
+		echo 'do you want to take the most recent version of scratchClient from the internet (N)'
 		read -a InstallTestedScratchClient -p 'Y or N: '
 	;;
 esac
