@@ -13,11 +13,11 @@ release=
 export release
 cd ~ # go to the home folder
 wget -O scratchClientTutorials-$release.tar.gz https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz
-
 #download the archive
 tar xzf scratchClientTutorials-$release.tar.gz # unpack the archive.
-cd *$release/Install # change directory to the Install directory of directory into
-which into which the archive was unpacked.
+cd *$release/Install 
+#change directory to the Install directory of directory into which 
+#the archive was unpacked.
 chmod 744 Install.sh # make sure that the install script can be executed.
 ./Install.sh # execute the install script
 
