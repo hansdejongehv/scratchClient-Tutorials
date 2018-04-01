@@ -1,10 +1,13 @@
 
 
-Pre-release of the workshop for Pi and More 10 1/2.
+# Pre-release of the workshop for Pi and More 10 1/2.
 
-This is only for testing.
+# This is only for testing.
 
+The scratchClient-Tutorials-Rel-Rpi.tar.gz file is the installation file for Raspberry Pi
+The Source Code (.zip and .tar.gz) files hold in addition the PowerPoint sources. The installer has only the .pdf versions
 To install, open a terminal window, copy the entire block below, paste it into the terminal window and hit enter.
+
 
 
 #---------------------------------
@@ -12,10 +15,10 @@ release=
 #THIS IS THE RELEASE NUMBER, e.g. scv0.1.5-alpha
 export release
 cd ~ # go to the home folder
-wget -O scratchClientTutorials-$release.tar.gz https://github.com/hansdejongehv/scratchClient-Tutorials/archive/$release.tar.gz
+wget -O scratchClientTutorials-$release.tar.gz https://github.com/hansdejongehv/scratchClient-Tutorials/releases/download/$release/scratchClient-Tutorials-Rel-Rpi.tar.gz	
 #download the archive
 tar xzf scratchClientTutorials-$release.tar.gz # unpack the archive.
-cd *$release/Install 
+cd scratchClient-Tutorials-Rel-Rpi/Install 
 #change directory to the Install directory of directory into which 
 #the archive was unpacked.
 chmod 744 Install.sh # make sure that the install script can be executed.

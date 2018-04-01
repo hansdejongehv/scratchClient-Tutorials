@@ -21,17 +21,11 @@
 # Author: Hans de Jong
 #
 ##############
+UnpackDirName=scratchClient-Tutorials-Rel-Rpi
 echo release=$release
 if [ -z $release ] ;
 then
 	echo The variable  release  is not set
-	exit
-fi
-
-
-if [ ! -d ../../*$release ] ;
-then
-	echo ../../*$release is not a directory
 	exit
 fi
 
@@ -95,7 +89,8 @@ echo "# FINAL CLEANUP"
 				# remove the folder into which the material was unpacked.
 				# note that this also deletes this install script, but since
 				# that is the almost last line, it should not be a problem.
-echo rm -r ../../*$release 
+cd ..
+echo rm -r . 
 
 echo "=============================================================================="
 echo "$ArduinoInstall"
