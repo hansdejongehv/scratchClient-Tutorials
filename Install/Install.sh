@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# set -x
 #############
 # 
 # This is the install script which will install the material of the 
-# Weekendschool / scratchClient presentation and workshop on 
-# a Raspberry Pi for Pi and More 10 in Trier on 24 June 2017.
+# scratchClient-Tutorials project on the Raspberry Pi where this script is run.
 #
 # It will:
-# - download and install the Arduino IDE 1.8.0, which is needed for
+# - download and install the Arduino IDE, which is needed for
 #   loading the scratchClient sketch in the Arduino Nano or Uno.
 #   This is only done if it is not installed already.
 # - put scratchClient at the right place. There is an option given to 
@@ -17,11 +15,14 @@
 # - download and install the packages that scratchClient needs.
 # - put the material of the PiAndMore workshop in a subfolder in the 
 #   home directory and give the scripts execute permission.
+# - Put sample files on the desktop
+# - Put links to the tutorials on the desktop
 #
 # Author: Hans de Jong
+# Date: 2 April 2018
 #
 ##############
-UnpackDirName=scratchClient-Tutorials-Rel-Rpi
+
 echo release=$release
 if [ -z $release ] ;
 then
