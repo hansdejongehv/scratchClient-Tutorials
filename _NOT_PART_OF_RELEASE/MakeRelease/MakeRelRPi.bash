@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #############
 # 
 # This is the script to create a release tar file with the material for
@@ -19,23 +20,53 @@
 #
 ##############
 
-
+#set -x
+# change these variables when material is moved to another location
 ParentSourceDir=~/NAS/GitHub
 ParentReleaseDir=$ParentSourceDir/Releases
-SourceDir=$ParentSourceDir/scratchClient-Tutorials
-TargetDir=$ParentTargetDir/scratchClient-Tutorials-Rel-RPi
-TargetTarFile=$ParentTargetDir/scratchClient-Tutorials-Rel-Rpi.tar.gz
 
-# chmod 777 $TargetDir
+# set the derived locations
+RepositoryName=scratchClient-Tutorials
+ReleaseGeneralName=scratchClient-Tutorials-Rel-Rpi
+SourceDir=$ParentSourceDir/$RepositoryName
+RepositoryReleaseDir=$ParentReleaseDir/$RepositoryName
+TargetDir=$RepositoryReleaseDir/$ReleaseGeneralName
+TargetTarFile=$RepositoryReleaseDir/$ReleaseGeneralName.tar.gz
+
+echo "-----> Create the release for the current version of repository: $RepositoryName"
+echo "-----> Generic name of the installer that will be created:       $ReleaseGeneralName"
+
+# make the path to the target folder if not yet present
+# The purpose is not to create $TargetDir (it will be deleted next), 
+# but to create the parent path
+mkdir -p $TargetDir
+
+
+# Remove previous release, if present
+echo "--> Remove any previous release, if present"
 rm -rf $TargetDir
 rm -rf $TargetTarFile
+
+echo "--> Copy the entire directory to be able to start weeding"
 cp -r $SourceDir $TargetDir
 
 cd $TargetDir
 
+echo "--> Remove those parts that should not be part of the released installer"
 rm -rf $TargetDir/.git
 rm -rf $TargetDir/_NOT_PART_OF_RELEASE
 rm -rf $TargetDir/docs
+
+rm -rf $TargetDir/*/*/Thumbs.db
+rm -rf $TargetDir/*/*/*/Thumbs.db
+rm -rf $TargetDir/*/*/*.pptx
+rm -rf $TargetDir/*/*/*/*.pptx
+rm -rf $TargetDir/*/*/*/*.odp
+rm -rf $TargetDir/scratchClientExtension/Icons/PDF* 
+rm -rf $TargetDir/scratchClientExtension/Icons/Thumbs.db
+rm -rf $TargetDir/scratchClientExtension/Icons/CatLogoScratch1*
+rm -rf $TargetDir/scratchClientExtension/Icons/CatLogoScratch2*
+
 
 # for f in $TargetDir/*
 # do
@@ -46,41 +77,12 @@ rm -rf $TargetDir/docs
 	# esac
 # done
 
-for f in $TargetDir/*/*/Thumbs.db
-do
-	echo "$f"
-	rm -rf "$f"
-done
-
-for f in $TargetDir/*/*/*.pptx
-do
-	echo "$f"
-	rm -rf "$f"
-done
-
-for f in $TargetDir/*/*/*/*.pptx
-do
-	echo "$f"
-	rm -rf "$f"
-done
-
-for f in $TargetDir/*/*/*/Thumbs.db
-do
-	echo "$f"
-	rm -rf "$f"
-done
-
-for f in $TargetDir/*/*/*/*.odp
-do
-	echo "$f"
-	rm -rf "$f"
-done
-
-for f in $TargetDir/scratchClientExtension/Icons/PDF* $TargetDir/scratchClientExtension/Icons/Thumbs.db
-do
-	echo "$f"
-	rm -rf "$f"
-done
-
+echo "--> Create the tar file for release"
+# The -C option directs to tar to take this as directory to be.
+# Then package that same directory, which is done by finding out what the basename is
+# This is effectively the same as when specifying a dot, however then the tar file has 
+# a folder name that is a single dot.
 tar -C $TargetDir/.. -c -a -f $TargetTarFile `basename $TargetDir`
+
+read -p "Hit Enter to continue"
 
