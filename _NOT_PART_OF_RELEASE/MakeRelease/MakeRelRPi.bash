@@ -56,6 +56,7 @@ echo "--> Remove those parts that should not be part of the released installer"
 rm -rf $TargetDir/.git
 rm -rf $TargetDir/_NOT_PART_OF_RELEASE
 rm -rf $TargetDir/docs
+rm -rf $TargetDir/ForHelpers
 
 rm -rf $TargetDir/*/*/Thumbs.db
 rm -rf $TargetDir/*/*/*/Thumbs.db
