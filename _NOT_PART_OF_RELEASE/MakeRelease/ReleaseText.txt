@@ -1,14 +1,20 @@
+# *__This is only for testing!__*
 
+# What is in this release
+* The scratchClient-Tutorials-Rel-Rpi.tar.gz file is the installation file for Raspberry Pi.
+* The scratchClient-Tutorials-Rel-Complete-RPi-image.7z file is a complete image, see below.
+* The Source Code (.zip and .tar.gz) files hold in addition the PowerPoint sources. The installer has only the .pdf versions. You will normally not need it.
 
-# Pre-release of the workshop for Pi and More 10 1/2.
+# This release is incomplete
+This release is incomplete and therefore it is not yet tagged as 1.0. What is missing:
+* Only the English beginners version is updated
+* Missing are:
+	* Updated German Anfaenger Niveau (Beginners version)
+	* Dutch Beginners version
+	* Intermediate, Advanced and Expert versions in English, German and Dutch
 
-# This is only for testing.
-
-The scratchClient-Tutorials-Rel-Rpi.tar.gz file is the installation file for Raspberry Pi
-The Source Code (.zip and .tar.gz) files hold in addition the PowerPoint sources. The installer has only the .pdf versions
+# To install on Raspberry Pi
 To install, open a terminal window, copy the entire block below, paste it into the terminal window and hit enter.
-
-
 
 #---------------------------------
 release=
@@ -23,4 +29,24 @@ cd scratchClient-Tutorials-Rel-Rpi/Install
 #the archive was unpacked.
 chmod 744 Install.sh # make sure that the install script can be executed.
 ./Install.sh # execute the install script
+
+
+
+# To install a complete image
+In some cases, some packages that scratchClient is dependent on go to a next release which is not completely compatible.
+If this is the case, please file an issue, but if you want to evaluate the software, you can download the complete image instead.
+
+The file contains the Raspian OS released on 2018-03-13, plus everything needed to run scratchClient.
+
+After download, 
+* decompress the image using 7-zip. If you do not have the software, then you can download it for free from: https://www.7-zip.org/	
+* When you have the decompressed image, you can put it on an SD card of at least 8 Gbyte using e.g.
+	* Win32DiskImager, downloadable from https://sourceforge.net/projects/win32diskimager/
+	* DiskImager, downloadble from https://github.com/RomanBelkov/DiskImager/wiki
+	(The DiskImager is btw a great program to load an image to multiple SD cards at the same time.)
+
+If you run into problems that the image does not fit, you can best take a 16 Gbyte SD card. The image was created with an 8 Gbyte SD card. However not all cards sold as 8Gbyte have the exact same amount of sectors. If you copy it to a 16 Gbyte card it will fit for sure.
+	
+
+
 
