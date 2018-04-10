@@ -86,4 +86,3 @@ echo "--> Create the tar file for release"
 tar -C $TargetDir/.. -c -a -f $TargetTarFile `basename $TargetDir`
 
 read -p "Hit Enter to continue"
-
