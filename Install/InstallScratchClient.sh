@@ -8,13 +8,11 @@
 #
 # Input: 
 #	InstallScratchClient
-#		Y or y			Delete the current scratchClient directory (if present)
-#					and (re-)install scratchClient
-#		any other value		Skip the installation
-#	InstallTestedScratchClient	
-#		Y or y			Install the scratchClient from the distribution
-#		any other value		Install the scratchClient from the Internet site
-#
+#		string starting with Tested	Delete the current scratchClient directory (if present)
+#						and (re-)install scratchClient using the tested version in this package
+#		string starting with Latest	Delete the current scratchClient directory (if present)
+#						and (re-)install scratchClient using the latest version from the internet
+#		No				Skip the installation
 # Output: 
 #	IsScratchClientInstalled	Shell variable set to indicate whether it was installed or not.
 #
@@ -23,11 +21,11 @@
 ##############
 
 
-echo "InstallScratchClient=$InstallScratchClient"
+#echo "InstallScratchClient=$InstallScratchClient"
 
 case "$InstallScratchClient" in
 
-	Y|y)
+	Tested*|Latest*)
 		echo "##############"
 		echo "# Put scratchClient at the right place and install required packages"
 		echo "##############"
@@ -38,17 +36,16 @@ case "$InstallScratchClient" in
 		fi
 
 		cd ~				# go to the home directory
-		echo "InstallTestedScratchClient=$InstallTestedScratchClient"
 
 		rm -f ~/scratchClient.tar.gz*
-		case "$InstallTestedScratchClient" in
+		case "$InstallScratchClient" in
 
-		N|n)
+		Latest*)
 			wget -O scratchClient.tar.gz http://heppg.de/download/scratchClient/scratchClient.tar.gz
 			# download scratchClient
 			IsScratchClientInstalled="scratchClient was installed from the downloaded internet version."
 		;;
-		*)
+		Tested*)
 			
 			cp ~/scratchClient-Tutorial*/scratchClientExtension/scratchClient/scratchClient*.tar.gz ./scratchClient.tar.gz
 			# copy the tested scratchClient

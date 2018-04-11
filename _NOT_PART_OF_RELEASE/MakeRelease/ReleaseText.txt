@@ -1,4 +1,4 @@
-# *__This is only for testing!__*
+# *__This is a version used for testing. DO NOT INSTALL THIS__*
 
 # What is in this release
 * The scratchClient-Tutorials-Rel-Rpi.tar.gz file is the installation file for Raspberry Pi.

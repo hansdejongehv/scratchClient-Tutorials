@@ -35,26 +35,55 @@ thisdir=`pwd`	# Remember where the script is started to be able later to find th
 # echo $thisdir
 
 # erase the .gz file that was used to download
-rm ../../*$release.tar.gz
+# rm ../../*$release.tar.gz
 
-InstallScratchClient="Y"
+
+InstallScratchClient="Yes"
 if  [  -e ~/scratchClient ] ;
 then
-	echo '----> scratchClient is already installed. Do you want to reinstall (Y)'
-	echo '      scratchClient or skip installation (default)?'
-	read -a InstallScratchClient -p 'Y or N: '
+	PS3='----> scratchClient is already installed. Do you want to reinstall? Select 1 or 2. (Hit Enter to see the choices again).'
+	select InstallScratchClient in Yes No
+	do
+		case $InstallScratchClient in
+		Yes|No)	break ;;
+		esac
+	done
+		
 fi
 
 
+
+
+
 case "$InstallScratchClient" in 
-	Y|y)
-		echo 'Do you want to install the latest release tested with this setup (Y, default), or'
-		echo 'do you want to take the most recent version of scratchClient from the internet (N)'
-		read -a InstallTestedScratchClient -p 'Y or N: '
+	Yes)
+		#echo 'You can choose to install the tested release of scratchClient Do you want to install the latest release tested with this setup (Y, default), or'
+		#echo 'do you want to take the most recent version of scratchClient from the internet (N)'
+		#read -a InstallTestedScratchClient -p 'Y or N: '
+		PS3='----> Which release of scratchClient do you want to install? (Hit Enter to see the choices again). '
+		select InstallScratchClient in 'Tested release: Install the release of scratchClient that was tested with this package' 'Latest release: Install the latest release from the internet' 'Help me'
+		do
+			case "$InstallScratchClient" in
+			Tested*|Latest*) break 
+				;;
+			Help*)
+				echo "-"
+				echo "- Although we try to make sure that next releases of scratchClient work with the current release"
+				echo "- of this package (scratchClient Extensions / scratchClient Tutorials), it can be that you get"
+				echo "- errors. Hence the safest is to install the tested release, however then you may miss out on"
+				echo "- new features or fixes in the current release of scratchClient."
+				echo "-"
+			esac
+		done
 	;;
 esac
 
+# After this choice, the variable InstallScratchClient can have one of these values
+# No					--> do not install scratchClient
+# string starting with: Tested		--> install the tested version
+# string starting with: Latest		--> install scratchClient from the internet
 
+exit
 
 
 cd $thisdir
@@ -112,3 +141,12 @@ esac
 
 echo "Hit any key to close"
 read
+
+exit
+
+# get keyboard input
+# $1 = 
+function getanswer()
+{
+
+}
