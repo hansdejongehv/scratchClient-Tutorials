@@ -83,8 +83,6 @@ esac
 # string starting with: Tested		--> install the tested version
 # string starting with: Latest		--> install scratchClient from the internet
 
-exit
-
 
 cd $thisdir
 source ./InstallScratchClient.sh

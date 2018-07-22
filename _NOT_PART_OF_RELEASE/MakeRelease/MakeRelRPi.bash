@@ -85,4 +85,4 @@ echo "--> Create the tar file for release"
 # a folder name that is a single dot.
 tar -C $TargetDir/.. -c -a -f $TargetTarFile `basename $TargetDir`
 
-read -p "Hit Enter to continue"
+read -p "Hit Enter to close"
