@@ -1,4 +1,4 @@
-#!/bin/bash
 
 ls -l /dev/ttyUSB*
+echo Hit Enter to close
 read a

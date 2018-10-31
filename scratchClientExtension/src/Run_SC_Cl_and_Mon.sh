@@ -2,7 +2,7 @@
 
 #############
 # 
-# usage: Start_SC_Cl_and_Mon.sh configfile [showRPipage]
+# usage: Run_SC_Cl_and_Mon.sh configfile [showRPipage]
 #	 configfile:  config file for scratchClient
 #	 showRPipage: optional. Y or N (default). Whether or not to show the page 
 #		      that contains the link how to make the scratchClient extension

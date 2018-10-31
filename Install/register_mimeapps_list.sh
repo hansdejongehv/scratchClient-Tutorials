@@ -3,7 +3,15 @@
 MIMETYPE="application/x-$1"
 PRIMEAPP="$1.desktop;"
 SECONDAPP="$2.desktop;"
-THIRDAPP="$3.desktop;"
+
+
+if [ "X$3" = X ]
+then
+	THIRDAPP=""
+else
+	THIRDAPP="$3.desktop;"
+fi
+
 MIMEAPPS_LIST_PATH=/home/pi/.config/mimeapps.list
 MIMETYPE_ASSOCIATION_LINE="$PRIMEAPP$SECONDAPP$THIRDAPP"
 tempfile=/tmp/mimeapps.list

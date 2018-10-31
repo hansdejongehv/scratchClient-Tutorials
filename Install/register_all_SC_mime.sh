@@ -34,3 +34,22 @@ $thisdir/register_mime.sh $APP "$NAME" $EXT $TERMINAL $EXEC $ICONDIR $ICONPREFIX
 
 $thisdir/register_mimeapps_list.sh $APP1 $APP2 leafpad
 
+
+
+# Here below is to register the SCT extension and icons
+EXT="sct"
+APP3="$EXT"Run
+ICONPREFIX="SCToolsLogo"
+
+APP=$APP3
+NAME="scratchClient Tools"
+COMMENT="$APP's data file"
+TERMINAL=true
+EXEC=~/scratchClientExtension/src/Run_SCTool.sh
+ICONDIR=$1
+
+$thisdir/register_mimeapp.sh $APP "$NAME" $EXT 
+
+$thisdir/register_mime.sh $APP "$NAME" $EXT $TERMINAL $EXEC $ICONDIR $ICONPREFIX
+
+$thisdir/register_mimeapps_list.sh $APP3 leafpad

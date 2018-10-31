@@ -80,8 +80,7 @@ case "$InstallScratchClient" in
 		# install what is needed for the Sonic-Pi adapter
 		sudo pip3 install python-osc
 
-		# install what is needed (or better: desired) for the scratchClient Extensions
-		sudo apt-get install xdotool
+
 
 	;;
 

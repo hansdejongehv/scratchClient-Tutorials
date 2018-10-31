@@ -106,6 +106,23 @@ chmod 744 register*sh
 
 cp ~/scratchClientExtension/Examples/* ~/Desktop/
 
+# install the package so that notify-send can be done. notify-send can be used with other messengers than dunst,
+# however if notify-send is not present then it is unlikely that there will be a conflicting messenger already.
+# hence safely install dunst
+
+if [ ! -e /usr/bin/notify-send ]
+then
+	sudo apt-get install libnotify-bin
+	echo "=============================================================================="
+	echo "When asked whether to install and whether to run at startup, answer Y
+	echo "=============================================================================="	
+	sudo apt-get install dunst
+fi
+
+
+# install what is needed (or better: desired) for the scratchClient Extensions
+sudo apt-get install xdotool
+
 chmod 744 SetLinks.sh
 ./SetLinks.sh
 

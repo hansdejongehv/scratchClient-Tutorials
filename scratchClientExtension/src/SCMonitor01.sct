@@ -1,7 +1,7 @@
-#!/bin/bash
+
 
 # Parameters that you might want to adapt 
-ScriptLocation=$HOME/Desktop/Begeleider/
+ScriptLocation=$HOME/scratchClientExtension/src
 ScratchPollMax=5			# Normal poll time in seconds
 ScratchPollFast=3			# If something was detected, the scrolling will be intensified. Poll time in seconds
 NotifyTimeMultiScratchOpen=100		# Time that the notification for multiple opened Scratch file must be displayed in 
@@ -24,10 +24,14 @@ NotifyTimeSaveWarning=`expr \( $SaveAlarmTime - $SaveWarningTime \) \* 1000`
 ThisFileName=`basename $0`
 HOME=/home/pi
 FullPath=$ScriptLocation/$ThisFileName
+FullPath=$ScriptLocation/SCMonitor.sct
+GrepString="/bin/bash .*SCMonitor.sct"
 
 #env > $HOME/env
 
 echo FullPath=$FullPath
+echo arg1=$1
+echo arg2=$2
 
 #############
 # 
@@ -104,24 +108,33 @@ fi
 
 
 #ps -ef | grep "/bin/bash $0"
-ProcCount=`ps -ef | grep --count "/bin/bash $0"`
+ProcCount=`ps -ef | grep --count "$GrepString"`
 #echo ProcCount=$ProcCount
 #Processes=`ps -ef | grep "/bin/bash $0"`
 #ps -ef | grep "/bin/bash $0" > /home/pi/test1
 #echo $Processes > /home/pi/Processes
 
+notify-send "ProcCount1 = $ProcCount"
+# result=`ps -ef | grep "$GrepString"`
+# echo "$result" > /home/pi/Desktop/proc.txt
 
+
+#When run from cron, if no other instance is running, the count will be 4:
+#- /bin/sh starting /bin/bash with the target
+#- /bin/bash with the target
+#- grep
+#- The command started between  ` and ` 
+#When run from the commandline, if no other instance is running, the count will be 
 case $ProcCount in
-0|1|2)	# It is not possible. Because this script is running and the command started between ` and ` as well as grep,
+0|1|2|3)	# It is not possible. Because this script is running and the command started betweenas well as grep,
 	# so the value must at least be 3.
 	if [ $ExecedFromCron = False ]; 
 	then
-		read -p "ProcCount=$ProcCount found on grep. Cannot occur. Hit enter to close"
+		read -p "ProcCount=$ProcCount found on grep. Start by double clicking the icon. Hit enter to close"
 	fi
 	exit
 	;;
-3)	# only the grep and this process, plus the command between ` and ` matches
-	# so the task did not yet run and the current task will continue running
+4)	# This is the only process running (see above)
 	;;
 *)	# the process already runs
 	if [ $ExecedFromCron = False ]; 
@@ -132,6 +145,10 @@ case $ProcCount in
 	exit
 	;;
 esac
+
+
+
+
 
 notify-send -u low "ProcCount = $ProcCount, therefore continue" 
 
@@ -145,7 +162,7 @@ then
 	if [ X$PutInCronTab = XY ] || [ X$PutInCronTab = Xy ] ;
 	then
 		crontab -l 2>/dev/null > /tmp/cronpi
-		echo "* * * * * DISPLAY=:0.0 $FullPath" >> /tmp/cronpi
+		echo "* * * * * DISPLAY=:0.0 /bin/bash $FullPath" >> /tmp/cronpi
 		crontab < /tmp/cronpi
 	fi
 fi
@@ -222,6 +239,14 @@ NotSavedTime=0
 
 while [ true ]
 do
+
+	#set -x
+	if [ "X$1" != X ] ;
+	then
+		source "$1"
+	fi
+	#set +x
+
 	# Loop over all .sbx files and process them.
 
 	for f in $inspectdir/*.sbx $inspectdir/*.sb2
