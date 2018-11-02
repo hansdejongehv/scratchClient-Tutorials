@@ -19,7 +19,13 @@
 # Date:   2018-02-04
 #
 ##############
-
+sleep 2
+ThisFile=`basename $0`
+xdotool search --name $ThisFile windowminimize > /dev/null 2>&1
+TimeStamp=`date +%H:%M:%S`
+sleep 1
+TargetFile=`basename $1`
+xdotool search --name $ThisFile set_window --name "$TargetFile - $TimeStamp" > /dev/null 2>&1
 
 scratchClient_configfile="$1"
 showRPipage=$2
@@ -132,6 +138,11 @@ fi
 ( setsid chromium-browser --window-position=1,1 --window-size=800,600 http://localhost:8080/adapters & )
 
 # echo "Status of Chromium start = $?"
+
+sleep 10
+#notify-send "voor minimize"
+xdotool search --name "ScratchClient - Chromium" windowminimize > /dev/null 2>&1
+
 
 # now run an infinite loop that every 10 seconds tests whether scratchClient still runs and if not exit
 # this process. If we would exit now, also scratchClient would stop. 

@@ -114,7 +114,7 @@ if [ ! -e /usr/bin/notify-send ]
 then
 	sudo apt-get install libnotify-bin
 	echo "=============================================================================="
-	echo "When asked whether to install and whether to run at startup, answer Y
+	echo "When asked whether to install and whether to run at startup, answer Y"
 	echo "=============================================================================="	
 	sudo apt-get install dunst
 fi
