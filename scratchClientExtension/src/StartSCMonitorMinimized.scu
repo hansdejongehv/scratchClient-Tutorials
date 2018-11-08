@@ -1,0 +1,11 @@
+
+
+
+( setsid chromium-browser --window-position=1,1 --window-size=800,600 http://localhost:8080/adapters > /home/pi/Desktop/stdout3.txt 2>/home/pi/Desktop/stderr2.txt & )
+
+# echo "Status of Chromium start = $?"
+
+sleep 7
+xdotool search --name "ScratchClient - Chromium" windowminimize > /dev/null 2>&1 
+xdotool search --name "localhost - Chromium" windowminimize > /dev/null 2>&1 
+# read -p bla

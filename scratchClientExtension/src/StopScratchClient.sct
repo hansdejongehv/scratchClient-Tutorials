@@ -1,0 +1,19 @@
+#!/bin/bash 
+
+ScratchClientCommand="python3.*scratchClient.py"	# string that will be used to pgrep whether scratchClient runs.
+ScratchClientStatusDisplay="/bin/bash.*ScratchClientStatusDisplay.bash"
+
+AmountScratchClient=`pgrep -f -c "$ScratchClientCommand"`
+AmountScratchClientDisplay=`pgrep -f -c "$ScratchClientStatusDisplay"`
+if [ $AmountScratchClient = 0 ] && [ $AmountScratchClientDisplay = 0 ]
+then
+	echo There is no scratchClient running
+else
+	#set -x
+	pkill -f -15 "$ScratchClientCommand"
+	sleep 1
+	# pkill -f "$ScratchClientStatusDisplay"
+
+	echo scratchClient has been stopped.
+fi
+read -p "Hit Enter to close"

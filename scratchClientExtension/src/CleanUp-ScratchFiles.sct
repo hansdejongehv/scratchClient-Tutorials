@@ -120,8 +120,7 @@ NotifyTimeSaveAlarm=100			# Time that the alarm notification must be displayed i
 					# milliseconds. It must be off before the next check, so that it looks like flashing.
 SaveWarningTime=420			# Time in seconds after which a warning will be given if the Scratch file is not saved.
 SaveAlarmTime=600			# Time in seconds after which an alarm will be given if the Scratch file is not saved.
-ScratchClientCommand="/bin/bash /home/pi/scratchClientExtension/src/Run_SC_Cl_and_Mon.sh"	# string that will be used to grep 
-												# whether scratchClient runs.
+ScratchClientCommand="python3.*scratchClient.py"	# string that will be used to pgrep whether scratchClient runs.
 
 # The intent is that the warning for saving will stay on till the alarm is going to be displayed. 
 # Hence we take the time between the two numbers and do it times 1000 to convert seconds to milliseconds. 
@@ -170,7 +169,7 @@ fi
 
 
 #ps -ef | grep "/bin/bash $0"
-ProcCount=`ps -ef | grep --count "$GrepString"`
+ProcCount=`pgrep -f -c "$GrepString"`
 #echo ProcCount=$ProcCount
 #Processes=`ps -ef | grep "/bin/bash $0"`
 #ps -ef | grep "/bin/bash $0" > /home/pi/test1
@@ -248,7 +247,7 @@ fi
 #- The command started between  ` and ` 
 #When run from the commandline, if no other instance is running, the count will be 
 case $ProcCount in
-0|1|2|3)	# It is not possible. Because this script is running and the command started betweenas well as grep,
+0!1)	# It is not possible. Because this script is running and the command started betweenas well as grep,
 	# so the value must at least be 3.
 	if [ $ExecedFromCron = False ]; 
 	then
@@ -256,7 +255,7 @@ case $ProcCount in
 	fi
 	exit
 	;;
-4)	# This is the only process running (see above)
+2)	# This is the only process running (see above)
 	;;
 *)	# the process already runs
 	if [ $ExecedFromCron = False ]; 
@@ -414,7 +413,7 @@ do
 	
 		
 		# Determine whether scratchClient is running
-		ProcCountScratchClient=`ps -ef | grep --count "$ScratchClientCommand"`
+		ProcCountScratchClient=`fgrep -f -c "$ScratchClientCommand"`
 
 		# If ScratchClient is mandatory then first test whether there are two Scratch instances running. If so give a notification.
 		# If SC is mandatory then if Scratch is running give a notification if ScratchClient is not running.
@@ -446,7 +445,7 @@ do
 
 
 
-			if  [ X$ProcCountScratchClient = X1 ] && ( [ -e $SCMandatory ]  || [ $SCLprojectOpen = 1 ] ) ;	# it will be always at least 1 because of grep. So the value 1 means that scratchClient does not run.
+			if  [ X$ProcCountScratchClient = X0 ] && ( [ -e $SCMandatory ]  || [ $SCLprojectOpen = 1 ] ) ;	
 			then
 				notify-send -u normal -t $NotifyTimeNoScratchClient "$NoScratchClientTitle" "$NoScratchClientBody"
 				ScratchPollCurrent=$ScratchPollFast

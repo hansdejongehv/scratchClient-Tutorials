@@ -1,0 +1,5 @@
+
+
+
+( setsid chromium-browser --window-position=1,1 --window-size=800,600 http://localhost:8080/adapters > /home/pi/Desktop/stdout3.txt 2>/home/pi/Desktop/stderr2.txt & )
+
