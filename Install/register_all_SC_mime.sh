@@ -53,3 +53,23 @@ $thisdir/register_mimeapp.sh $APP "$NAME" $EXT
 $thisdir/register_mime.sh $APP "$NAME" $EXT $TERMINAL $EXEC $ICONDIR $ICONPREFIX
 
 $thisdir/register_mimeapps_list.sh $APP3 leafpad
+
+
+# Here below is to register the SCU extension and icons
+EXT="scu"
+APP3="$EXT"Run
+ICONPREFIX="SCToolsLogo"
+
+APP=$APP3
+NAME="scratchClient Tools"
+COMMENT="$APP's data file"
+TERMINAL=false
+EXEC=~/scratchClientExtension/src/Run_SCTool.sh
+ICONDIR=$1
+
+$thisdir/register_mimeapp.sh $APP "$NAME" $EXT 
+
+$thisdir/register_mime.sh $APP "$NAME" $EXT $TERMINAL $EXEC $ICONDIR $ICONPREFIX
+
+$thisdir/register_mimeapps_list.sh $APP3 leafpad
+
