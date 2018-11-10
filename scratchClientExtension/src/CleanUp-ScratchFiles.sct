@@ -149,7 +149,7 @@ SCMandatory=$targetdir/.SCMandatory
 
 # notify-send LANG=$LANG
 
-
+#echo Test wordt dit gezien?
 
 # Determine whether the process is running from cron. For that the variable DESKTOP_SESSION is used.
 # When started from cron, no messages will be given in the terminal window.
@@ -284,8 +284,8 @@ then
 	if [ X$PutInCronTab != XN ] && [ X$PutInCronTab != Xn ] ;
 	then
 		crontab -l 2>/dev/null > /tmp/cronpi
-		echo "* * * * * DISPLAY=:0.0 /bin/bash $FullPath" >> /tmp/cronpi
-		crontab < /tmp/cronpi
+		cat $ScriptLocation/CrontabStart >> /tmp/cronpi
+		crontab < /tmp/cronpi		
 		read -p "$MsgHitKeyAfterCronTab" result
 		exit
 	fi
@@ -413,7 +413,7 @@ do
 	
 		
 		# Determine whether scratchClient is running
-		ProcCountScratchClient=`fgrep -f -c "$ScratchClientCommand"`
+		ProcCountScratchClient=`pgrep -f -c "$ScratchClientCommand"`
 
 		# If ScratchClient is mandatory then first test whether there are two Scratch instances running. If so give a notification.
 		# If SC is mandatory then if Scratch is running give a notification if ScratchClient is not running.

@@ -1,0 +1,1 @@
+* * * * * DISPLAY=:0.0 /bin/bash /home/pi/scratchClientExtension/src/CleanUp-ScratchFiles.sct /home/pi/WS_Ext/SCMonitorWSExt.bash 2>&1 | DISPLAY=:0.0 /home/pi/scratchClientExtension/src/LogAndNotify.bash

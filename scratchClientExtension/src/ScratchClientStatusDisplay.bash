@@ -5,9 +5,12 @@ function replace {
 
 }
 
+timestamp=`date "+%Y%m%d-%H%M%S"`
 LogDir=/home/pi/.SCControlDir
-LogComplete=$LogDir/LogComplete.txt
-LogRemain=$LogDir/LogRemain.txt
+LogComplete=$LogDir/SCLogComplete-$timestamp.txt
+LogRemain=$LogDir/SCLogRemain-$timestamp.txt
+
+
 
 
 everconnected=false
