@@ -247,20 +247,20 @@ fi
 #- The command started between  ` and ` 
 #When run from the commandline, if no other instance is running, the count will be 
 case $ProcCount in
-0!1)	# It is not possible. Because this script is running and the command started betweenas well as grep,
+0|1)	# It is not possible. Because this script is running and the command started betweenas well as grep,
 	# so the value must at least be 3.
 	if [ $ExecedFromCron = False ]; 
 	then
 		read -p "ProcCount=$ProcCount found on grep. Start by double clicking the icon. Hit enter to close"
 	fi
-	exit
+	# exit
 	;;
 2)	# This is the only process running (see above)
 	;;
 *)	# the process already runs
 	if [ $ExecedFromCron = False ]; 
 	then
-		msg=`printf "$MsGAlreadyRunning" "$ThisFileName"` 
+		msg=`printf "$MsGAlreadyRunning" "$ThisFileName  ProcCount = $ProcCount"` 
 		read -p "$msg"
 	fi
 	# notify-send -u low "ProcCount = $ProcCount, therefore stop" 
