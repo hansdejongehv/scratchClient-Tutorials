@@ -1,7 +1,7 @@
-In this folder material will be pu that belongs to the project, but which is to be excluded from releases
-that users install. 
+In this folder material will be put that belongs to the project, but which is to be excluded from releases that users install. 
 
 When creating installers for release run the script in the folder MakeRelease.
+Run on Raspberry Pi.
 Those scripts will take the entire local copy of the Github project and
 - Copy the whole local copy and from that copy:
 - Delete the .git folder (which contains old commits and the Github administration)
